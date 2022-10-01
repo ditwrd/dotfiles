@@ -1,0 +1,18 @@
+- name: Set Up
+  hosts: local
+  become: yes
+  become_method: sudo
+  roles:
+    - role: zsh
+      tags:
+        - zsh
+    - { role: diodonfrost.p10k, p10k_prompt_style: "rainbow", zsh_plugin: ohmyzsh, p10k_transient_prompt: "yes", tags: p10k }
+    - role: tmux
+      tags:
+        - tmux
+    - role: nvim
+      tags:
+        - nvim
+    - role: geerlingguy.nodejs
+      tags:
+        - node

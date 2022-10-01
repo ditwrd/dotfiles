@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash -l
 set -e
 
 tags="$1"
@@ -7,12 +7,18 @@ if [ -z $tags ]; then
   tags="all"
 fi
 
-if ! [ -x "$(command -v pip)" ]; then
-  sudo apt install python3-pip -y
-fi
+if ! [ -x "$(command -v conda)" ]; then
+		bash scripts/miniconda-setup.sh
+	fi
+
 if ! [ -x "$(command -v ansible)" ]; then
-  python3 -m pip install --user ansible
+	conda install -c conda-forge ansible
 fi
 
-export PATH="$(eval echo ~$USER)/.local/bin:$PATH"
-ansible
+ansible-galaxy install diodonfrost.p10k
+ansible-galaxy install geerlingguy.nodejs
+ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/dotfiles.yml --ask-become-pass --tags $tags
+
+if [ $tags = "nvim" ]; then
+	nvim +PackerSync
+fi
