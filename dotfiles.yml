@@ -16,3 +16,4 @@
     - role: geerlingguy.nodejs
       tags:
         - node
+    - {role: geerlingguy.docker, docker_install_compose_plugin: true, tags: docker}
