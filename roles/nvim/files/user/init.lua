@@ -182,6 +182,7 @@ local config = {
     init = {
       { "prettier/vim-prettier" },
       { "pearofducks/ansible-vim" },
+      { "nathom/filetype.nvim" },
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
 
