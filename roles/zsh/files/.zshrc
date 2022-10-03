@@ -113,7 +113,8 @@ bashcompinit
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
+
+# Custom Aliases
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias lsc='colorls -lA --sd'
@@ -127,6 +128,15 @@ alias cl="clear"
 alias st="speedtest"
 alias v="nvim"
 alias coa="conda activate"
+
+# Custom export
+export GOROOT=/usr/local/go-1.18.3
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$HOME/.gem:$PATH
+export AUTOSWITCH_DEFAULT_CONDAENV="base"
+export PATH="$HOME/.poetry/bin:$PATH"
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -143,21 +153,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-export PATH="$HOME/.poetry/bin:$PATH"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export GOROOT=/usr/local/go-1.18.3
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-export PATH=$HOME/.gem:$PATH
-
 # Start Docker daemon automatically when logging in if not running.
 RUNNING=`ps aux | grep dockerd | grep -v grep`
 if [ -z "$RUNNING" ]; then
@@ -167,6 +162,7 @@ fi
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
 # BEGIN P10K CONFIG FILE ANSIBLE MANAGED BLOCK
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # END P10K CONFIG FILE ANSIBLE MANAGED BLOCK
