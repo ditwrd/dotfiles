@@ -5,14 +5,14 @@
       - fzf
       - ruby-full
     state: present
-  become: yes
+  become: true
   become_method: sudo
 - name: Install colorls
   gem:
     name: colorls
     state: latest
     user_install: no
-  become: yes
+  become: true
   become_method: sudo
 - name: Check for oh-my-zsh installation
   stat: "path=~/.oh-my-zsh"
