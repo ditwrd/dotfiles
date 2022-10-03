@@ -31,3 +31,7 @@
     mode: "755"
   become: true
   become_method: sudo
+- name: Install ripgrep
+  apt:
+    name: ripgrep
+    state: present
