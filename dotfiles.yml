@@ -30,7 +30,7 @@
     - role: docker
       tags:
         - docker
-    - role: robertdebock.terraform
+    - role: terraform
       tags:
         - terraform
     - role: christiangda.awscli
