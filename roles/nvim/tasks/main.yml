@@ -2,24 +2,20 @@
   get_url:
     url: https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb
     dest: "{{dotfiles_user_home}}/nvim-linux64.deb"
-
 - name: Install neovim from deb file
   apt:
     deb: "{{dotfiles_user_home}}/nvim-linux64.deb"
   become: yes
   become_method: sudo
-
 - name: Install AstroNvim
   git:
     repo: "https://github.com/AstroNvim/AstroNvim"
     dest: "{{dotfiles_user_home}}/.config/nvim"
-
 - name: Added personal AstroNvim config
   file:
     src: "{{dotfiles_home}}/roles/nvim/files/user"
     dest: "{{dotfiles_user_home}}/.config/nvim/lua/user"
     state: link
-
 - name: Install lazygit
   unarchive:
     src: https://github.com/jesseduffield/lazygit/releases/download/v0.35/lazygit_0.35_Linux_x86_64.tar.gz
@@ -27,4 +23,11 @@
     remote_src: yes
   become: yes
   become_method: sudo
-
+- name: Install win32yank
+  unarchive:
+    src: https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
+    dest: "/usr/local/bin"
+    remote_src: yes
+    mode: "755"
+  become: yes
+  become_method: sudo
