@@ -18,6 +18,7 @@ fi
 ansible-galaxy install diodonfrost.p10k
 ansible-galaxy install geerlingguy.nodejs
 ansible-galaxy install geerlingguy.docker
+ansible-galaxy install robertdebock.terraform
 ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/dotfiles.yml --ask-become-pass --tags $tags
 
 if [ $tags = "nvim" ]; then
