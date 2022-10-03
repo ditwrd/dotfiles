@@ -30,3 +30,6 @@
     - role: robertdebock.terraform
       tags:
         - terraform
+    - role: christiangda.awscli
+      tags:
+        - aws

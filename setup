@@ -4,23 +4,39 @@ set -e
 tags="$1"
 
 if [ -z $tags ]; then
-  tags="all"
+	tags="all"
 fi
 
 if ! [ -x "$(command -v conda)" ]; then
-		bash scripts/miniconda-setup.sh
-	fi
+	bash scripts/miniconda-setup.sh
+fi
 
 if ! [ -x "$(command -v ansible)" ]; then
 	conda install -c conda-forge ansible
 fi
 
-ansible-galaxy install diodonfrost.p10k
-ansible-galaxy install geerlingguy.nodejs
-ansible-galaxy install geerlingguy.docker
-ansible-galaxy install robertdebock.terraform
+if [ $tags = "p10k" ] || [ $tags = "all" ]; then
+	ansible-galaxy install diodonfrost.p10k
+fi
+
+if [ $tags = "node" ] || [ $tags = "all" ]; then
+	ansible-galaxy install geerlingguy.nodejs
+fi
+
+if [ $tags = "docker" ] || [ $tags = "all" ]; then
+	ansible-galaxy install geerlingguy.docker
+fi
+
+if [ $tags = "terraform" ] || [ $tags = "all" ]; then
+	ansible-galaxy install robertdebock.terraform
+fi
+
+if [ $tags = "aws" ] || [ $tags = "all" ]; then
+	ansible-galaxy install christiangda.awscli
+fi
+
 ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/dotfiles.yml --ask-become-pass --tags $tags
 
-if [ $tags = "nvim" ]; then
+if [ $tags = "nvim" ] || [ $tags = "all" ]; then
 	nvim +PackerSync
 fi
