@@ -27,9 +27,15 @@
         docker_install_compose_plugin: true,
         tags: docker,
       }
+    - role: docker
+      tags:
+        - docker
     - role: robertdebock.terraform
       tags:
         - terraform
     - role: christiangda.awscli
       tags:
         - aws
+    - role: speedtest
+      tags:
+        - speedtest
