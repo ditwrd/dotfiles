@@ -124,7 +124,7 @@ alias st="speedtest"
 alias v="nvim"
 alias coa="conda activate"
 alias lg="lazygit"
-
+alias x="exit"
 # Custom export
 export GOROOT=/usr/local/go-1.18.3
 export GOPATH=$HOME/go
