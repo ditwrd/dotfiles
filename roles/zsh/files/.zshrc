@@ -108,11 +108,6 @@ bashcompinit
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
 
 # Custom Aliases
 alias zshconfig="nvim ~/.zshrc"
@@ -155,9 +150,11 @@ unset __conda_setup
 
 # Start Docker daemon automatically when logging in if not running.
 RUNNING=`ps aux | grep dockerd | grep -v grep`
-if [ -z "$RUNNING" ]; then
-    sudo dockerd > /dev/null 2>&1 &
-    disown
+
+
+# Start Docker on WSL 
+if service docker status 2>&1 | grep -q "is not running"; then
+    wsl.exe -d "${WSL_DISTRO_NAME}" -u root -e /usr/sbin/service docker start >/dev/null 2>&1
 fi
 
 autoload -U +X bashcompinit && bashcompinit
