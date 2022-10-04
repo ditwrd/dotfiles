@@ -112,17 +112,24 @@ bashcompinit
 # Custom Aliases
 alias vz="nvim ~/.zshrc"
 alias voz="nvim ~/.oh-my-zsh"
+alias v="nvim"
+
 alias lsc='colorls -lA --sd'
 alias ls='colorls -a --sd'
+
 alias cdh='cd ~'
 alias code="code-insiders ."
 alias cdd="cd .."
 alias cl="clear"
+
+alias tm="tmux"
+alias tma="tmux attach -t"
+
 alias st="speedtest"
-alias v="nvim"
 alias coa="conda activate"
 alias lg="lazygit"
 alias x="exit"
+
 alias dsp="docker system prune"
 
 # Custom export
