@@ -110,15 +110,13 @@ bashcompinit
 
 
 # Custom Aliases
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias vz="nvim ~/.zshrc"
+alias voz="nvim ~/.oh-my-zsh"
 alias lsc='colorls -lA --sd'
 alias ls='colorls -a --sd'
 alias cdh='cd ~'
 alias code="code-insiders ."
 alias cdd="cd .."
-alias zshconfig="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cl="clear"
 alias st="speedtest"
 alias v="nvim"
