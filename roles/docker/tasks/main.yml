@@ -1,0 +1,8 @@
+- name: Install docker
+  become: true
+  become_method: sudo
+  # roles:
+  # - geerlingguy.docker
+  # vars:
+  # docker_install_compose_plugin: true
+  script: "{{ dotfiles_home }}/scripts/add-docker-group.sh"

@@ -1,0 +1,29 @@
+- name: Install Flutter Dependencies
+  ansible.builtin.apt:
+    name:
+      - clang
+      - cmake
+      - ninja-build
+      - pkg-config
+      - libgtk-3-dev
+    state: latest
+
+- name: Download flutter installation
+  ansible.builtin.get_url:
+    url: "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_{{FLUTTER_VERSION}}-stable.tar.xz"
+    dest: "{{ dotfiles_user_home}}/flutter-install.tar.xz"
+    mode: "0755"
+
+- name: Check if flutter folder is untarred
+  ansible.builtin.stat:
+    path: "/usr/local/bin/flutter/"
+  register: flutter_folder
+
+- name: Untar flutter tar
+  ansible.builtin.unarchive:
+    src: "{{ dotfiles_user_home }}/flutter-install.tar.xz"
+    dest: "/usr/local/bin"
+    mode: "0755"
+  become: true
+  become_method: sudo
+  when: not flutter_folder.stat.exists

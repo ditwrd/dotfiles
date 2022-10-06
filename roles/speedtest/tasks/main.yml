@@ -3,8 +3,14 @@
     url: https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh
     dest: /tmp/speedtest-script.deb.sh
     mode: "755"
+
 - name: Execute speedtest script
   ansible.builtin.shell: /tmp/speedtest-script.deb.sh
+  become: true
+  become_method: sudo
+
 - name: Install speedtest
   ansible.builtin.apt:
     name: speedtest
+  become: true
+  become_method: sudo

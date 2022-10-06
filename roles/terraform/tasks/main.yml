@@ -15,8 +15,12 @@
     update_cache: true
     cache_valid_time: 1
     force_apt_get: true
+  become: true
+  become_method: sudo
 
 - name: Install Terraform
   apt:
     name: terraform
     state: latest
+  become: true
+  become_method: sudo

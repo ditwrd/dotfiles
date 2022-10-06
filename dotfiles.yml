@@ -1,7 +1,11 @@
 - name: Set Up
   hosts: local
-  become: yes
-  become_method: sudo
+  vars:
+    - NODE_VERSION: "16"
+    - FLUTTER_VERSION: "3.3.4"
+    - NVIM_VERSION: "0.7.2"
+    - LAZYGIT_VERSION: "0.35"
+    - WINYANK_VERSION: "0.0.4"
   roles:
     - role: zsh
       tags:
@@ -19,12 +23,17 @@
     - role: nvim
       tags:
         - nvim
-    - role: geerlingguy.nodejs
+          
+    - role: nvm
       tags:
-        - node
+        - nvm
+      nvm_profile: "/home/{{ user }}/.zshrc"
+      nvm_version: "0.39.1"
+      nvm_commands:
+        - "nvm alias default {{ NODE_VERSION }}"
     - {
         role: geerlingguy.docker,
-        docker_install_compose_plugin: true,
+        docker_users: ["{{ user }}"],
         tags: docker,
       }
     - role: docker
@@ -36,6 +45,11 @@
     - role: christiangda.awscli
       tags:
         - aws
+      become: true
+      become_method: sudo
     - role: speedtest
       tags:
         - speedtest
+    - role: flutter
+      tags:
+        - flutter
