@@ -19,16 +19,8 @@ if [ $tags = "p10k" ] || [ $tags = "all" ]; then
 	ansible-galaxy install diodonfrost.p10k
 fi
 
-if [ $tags = "node" ] || [ $tags = "all" ]; then
-	ansible-galaxy install geerlingguy.nodejs
-fi
-
 if [ $tags = "docker" ] || [ $tags = "all" ]; then
 	ansible-galaxy install geerlingguy.docker
-fi
-
-if [ $tags = "terraform" ] || [ $tags = "all" ]; then
-	ansible-galaxy install robertdebock.terraform
 fi
 
 if [ $tags = "aws" ] || [ $tags = "all" ]; then

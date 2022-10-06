@@ -36,9 +36,6 @@
         docker_users: ["{{ user }}"],
         tags: docker,
       }
-    - role: docker
-      tags:
-        - docker
     - role: terraform
       tags:
         - terraform
@@ -53,3 +50,6 @@
     - role: flutter
       tags:
         - flutter
+    - role: npm
+      tags:
+        - npm
