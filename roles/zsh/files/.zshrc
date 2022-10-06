@@ -139,7 +139,7 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH=$HOME/.gem:$PATH
 export AUTOSWITCH_DEFAULT_CONDAENV="base"
 export PATH="$HOME/.poetry/bin:$PATH"
-
+export PATH="/usr/local/bin/flutter/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
