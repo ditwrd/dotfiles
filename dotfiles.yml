@@ -23,7 +23,7 @@
     - role: nvim
       tags:
         - nvim
-          
+
     - role: nvm
       tags:
         - nvm
@@ -36,7 +36,7 @@
         docker_users: ["{{ user }}"],
         tags: docker,
         become: true,
-        become_method: sudo
+        become_method: sudo,
       }
     - role: terraform
       tags:
@@ -55,3 +55,6 @@
     - role: npm
       tags:
         - npm
+    - role: misc
+      tags:
+        - misc
