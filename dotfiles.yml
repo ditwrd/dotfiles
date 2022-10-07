@@ -35,6 +35,8 @@
         role: geerlingguy.docker,
         docker_users: ["{{ user }}"],
         tags: docker,
+        become: true,
+        become_method: sudo
       }
     - role: terraform
       tags:

@@ -112,6 +112,7 @@ bashcompinit
 # Custom Aliases
 alias vz="nvim ~/.zshrc"
 alias voz="nvim ~/.oh-my-zsh"
+alias vd="nvim ~/dotfiles"
 alias v="nvim"
 
 alias lsc='colorls -lA --sd'
@@ -131,6 +132,7 @@ alias lg="lazygit"
 alias x="exit"
 
 alias dsp="docker system prune"
+alias pnx="pnpm nx"
 
 # Custom export
 export GOROOT=/usr/local/go-1.18.3

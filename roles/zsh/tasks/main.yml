@@ -4,6 +4,9 @@
       - zsh
       - fzf
       - ruby-full
+      - ruby-dev
+      - build-essential
+      - make
     state: present
   become: true
   become_method: sudo
