@@ -13,6 +13,7 @@ fi
 
 if ! [ -x "$(command -v ansible)" ]; then
 	conda install -c conda-forge ansible
+	conda install -c conda-forge ansible-lint
 fi
 
 if [ $tags = "p10k" ] || [ $tags = "all" ]; then
