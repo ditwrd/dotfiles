@@ -125,7 +125,6 @@ alias cl="clear"
 
 alias tm="tmux"
 alias tma="tmux attach -t"
-
 alias st="speedtest"
 alias coa="conda activate"
 alias lg="lazygit"
@@ -142,6 +141,9 @@ export PATH=$HOME/.gem:$PATH
 export AUTOSWITCH_DEFAULT_CONDAENV="base"
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="/usr/local/bin/flutter/bin:$PATH"
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+export VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH="$(wslpath "$(wslvar USERPROFILE)")"
+export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -182,3 +184,8 @@ export NVM_DIR="$HOME/.nvm"
 export PNPM_HOME="/home/adit/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# >>>> Vagrant command completion (start)
+fpath=(/opt/vagrant/embedded/gems/2.3.1/gems/vagrant-2.3.1/contrib/zsh $fpath)
+compinit
+# <<<<  Vagrant command completion (end)

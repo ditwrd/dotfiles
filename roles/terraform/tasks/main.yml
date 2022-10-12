@@ -24,3 +24,18 @@
     state: latest
   become: true
   become_method: sudo
+
+- name: Install Vagrant
+  apt:
+    name: vagrant
+    state: latest
+  become: true
+  become_method: sudo
+
+- name: Vagrant install autocomplete
+  ansible.builtin.command:
+    cmd: vagrant autocomplete install --zsh
+
+- name: Vagrant install wsl plugin
+  ansible.builtin.command:
+    cmd: vagrant plugin install virtualbox_WSL2
