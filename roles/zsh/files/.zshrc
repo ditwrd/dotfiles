@@ -133,6 +133,11 @@ alias x="exit"
 alias dsp="docker system prune"
 alias pnx="pnpm nx"
 
+alias dacli='docker run --rm -it -v $(pwd):/ansible --workdir=/ansible willhallonline/ansible:latest /bin/sh'
+alias dacmd='docker run --rm -it -v $(pwd):/ansible --workdir=/ansible willhallonline/ansible:latest '
+
+
+
 # Custom export
 export GOROOT=/usr/local/go-1.18.3
 export GOPATH=$HOME/go
