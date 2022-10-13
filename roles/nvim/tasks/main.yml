@@ -1,10 +1,10 @@
 - name: Download neovim debian
   get_url:
     url: "https://github.com/neovim/neovim/releases/download/v{{ NVIM_VERSION }}/nvim-linux64.deb"
-    dest: "{{ dotfiles_user_home }}/nvim-linux64.deb"
+    dest: "{{ dotfiles_user_home }}/nvim-linux64-{{NVIM_VERSION}}.deb"
 - name: Install neovim from deb file
   apt:
-    deb: "{{ dotfiles_user_home }}/nvim-linux64.deb"
+    deb: "{{ dotfiles_user_home }}/nvim-linux64-{{NVIM_VERSION}}.deb"
   become: true
   become_method: sudo
 - name: Install AstroNvim
@@ -16,6 +16,12 @@
     src: "{{ dotfiles_home }}/roles/nvim/files/user"
     dest: "{{ dotfiles_user_home }}/.config/nvim/lua/user"
     state: link
+
+- name: Check if lazygit is installed
+  stat:
+    path: /usr/local/bin/lazygit
+  register: lg_installed
+
 - name: Install lazygit
   unarchive:
     src: "https://github.com/jesseduffield/lazygit/releases/download/v{{LAZYGIT_VERSION}}/lazygit_{{LAZYGIT_VERSION}}_Linux_x86_64.tar.gz"
@@ -23,6 +29,13 @@
     remote_src: true
   become: true
   become_method: sudo
+  when: lg_installed.stat.exists is false
+
+- name: Check if win32yank is installed
+  stat:
+    path: /usr/local/bin/win32yank.exe
+  register: wy_installed
+
 - name: Install win32yank
   unarchive:
     src: "https://github.com/equalsraf/win32yank/releases/download/v{{WINYANK_VERSION}}/win32yank-x64.zip"
@@ -31,9 +44,16 @@
     mode: "755"
   become: true
   become_method: sudo
+  when: wy_installed.stat.exists is false
+
+- name: Gather package facts
+  package_facts:
+    manager: apt
+
 - name: Install ripgrep
   apt:
     name: ripgrep
     state: present
   become: true
   become_method: sudo
+  when: '"ripgrep" not in ansible_facts.packages'
