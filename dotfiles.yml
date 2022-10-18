@@ -15,6 +15,7 @@
         p10k_prompt_style: "rainbow",
         zsh_plugin: ohmyzsh,
         p10k_transient_prompt: "yes",
+        p10k_prompt_height: one-line,
         tags: p10k,
       }
     - role: tmux

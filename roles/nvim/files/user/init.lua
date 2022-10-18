@@ -197,7 +197,8 @@ local config = {
   -- Configure plugins
   plugins = {
     init = {
-        { "pearofducks/ansible-vim"}
+        { "pearofducks/ansible-vim"},
+        { "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, }
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
 
