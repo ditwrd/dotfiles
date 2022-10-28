@@ -87,7 +87,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Add wisely, as too many plugins slow down shell startup.
 
 export NVM_LAZY_LOAD=true
-plugins=(zshfl zsh-nvm auto-color-ls z zsh-autosuggestions fzf zsh-interactive-cd)
+plugins=(zsh-autoswitch-conda zshfl zsh-nvm auto-color-ls z zsh-autosuggestions fzf zsh-interactive-cd)
 
 source $ZSH/oh-my-zsh.sh
 source $(dirname $(gem which colorls))/tab_complete.sh
