@@ -26,7 +26,7 @@ local config = {
         },
 
         -- Set colorscheme to use
-        colorscheme = "default_theme",
+        colorscheme = "nightfly",
 
         -- Add highlight groups in any theme
         highlights = {
@@ -201,7 +201,8 @@ local config = {
                         { "pearofducks/ansible-vim" },
                         { "iamcco/markdown-preview.nvim", run = "cd app && npm install",
                                 setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, },
-                        { "chr4/nginx.vim" }
+                        { "chr4/nginx.vim" },
+                        { "bluz71/vim-nightfly-guicolors" }
                         -- You can disable default plugins as follows:
                         -- ["goolord/alpha-nvim"] = { disable = true },
 
