@@ -91,8 +91,6 @@ plugins=(zsh-autoswitch-conda zshfl zsh-nvm auto-color-ls z zsh-autosuggestions 
 
 source $ZSH/oh-my-zsh.sh
 source $(dirname $(gem which colorls))/tab_complete.sh
-# autoload bashcompinit
-# bashcompinit
 
 
 # User configuration
