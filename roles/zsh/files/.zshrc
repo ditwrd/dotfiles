@@ -1,3 +1,6 @@
+zmodload zsh/zprof
+
+
 # BEGIN P10K INSTANT PROMPT ANSIBLE MANAGED BLOCK
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -37,7 +40,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -82,31 +85,17 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(copypath zsh-autoswitch-conda auto-color-ls sudo z zsh-autosuggestions fzf zsh-interactive-cd)
 
+export NVM_LAZY_LOAD=true
+plugins=(zshfl zsh-nvm auto-color-ls z zsh-autosuggestions fzf zsh-interactive-cd)
 
 source $ZSH/oh-my-zsh.sh
 source $(dirname $(gem which colorls))/tab_complete.sh
-autoload bashcompinit
-bashcompinit
+# autoload bashcompinit
+# bashcompinit
 
 
 # User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 
 # Custom Aliases
@@ -143,12 +132,10 @@ export GOROOT=/usr/local/go-1.18.3
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH=$HOME/.gem:$PATH
-export AUTOSWITCH_DEFAULT_CONDAENV="base"
-export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/bin/flutter/bin:$PATH"
-export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
-export VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH="$(wslpath "$(wslvar USERPROFILE)")"
 export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
+export CONDA_AUTO_ACTIVATE_BASE=false
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -181,16 +168,7 @@ complete -o nospace -C /usr/bin/terraform terraform
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # END P10K CONFIG FILE ANSIBLE MANAGED BLOCK
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # pnpm
 export PNPM_HOME="/home/adit/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
-
-# >>>> Vagrant command completion (start)
-fpath=(/opt/vagrant/embedded/gems/2.3.1/gems/vagrant-2.3.1/contrib/zsh $fpath)
-compinit
-# <<<<  Vagrant command completion (end)

@@ -15,7 +15,6 @@
         p10k_prompt_style: "rainbow",
         zsh_plugin: ohmyzsh,
         p10k_transient_prompt: "yes",
-        p10k_prompt_height: one-line,
         tags: p10k,
       }
     - role: tmux
@@ -24,14 +23,6 @@
     - role: nvim
       tags:
         - nvim
-
-    - role: nvm
-      tags:
-        - nvm
-      nvm_profile: "/home/{{ user }}/.zshrc"
-      nvm_version: "0.39.1"
-      nvm_commands:
-        - "nvm alias default {{ NODE_VERSION }}"
     - {
         role: geerlingguy.docker,
         docker_users: ["{{ user }}"],
