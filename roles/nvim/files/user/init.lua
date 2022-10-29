@@ -199,10 +199,15 @@ local config = {
         plugins = {
                 init = {
                         { "pearofducks/ansible-vim" },
-                        { "iamcco/markdown-preview.nvim", run = "cd app && npm install",
-                                setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, },
                         { "chr4/nginx.vim" },
-                        { "bluz71/vim-nightfly-guicolors" }
+                        { "bluz71/vim-nightfly-guicolors" },
+                        {
+                                "Pocco81/auto-save.nvim",
+                                config = function()
+                                        require("auto-save").setup {
+                                        }
+                                end,
+                        }
                         -- You can disable default plugins as follows:
                         -- ["goolord/alpha-nvim"] = { disable = true },
 

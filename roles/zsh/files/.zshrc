@@ -86,8 +86,8 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-export NVM_LAZY_LOAD=true
-plugins=(zsh-autoswitch-conda zshfl zsh-nvm auto-color-ls z zsh-autosuggestions fzf)
+# export NVM_LAZY_LOAD=true
+plugins=(zsh-autoswitch-conda zshfl auto-color-ls z zsh-autosuggestions fzf)
 
 source $ZSH/oh-my-zsh.sh
 source $(dirname $(gem which colorls))/tab_complete.sh
@@ -170,3 +170,5 @@ complete -o nospace -C /usr/bin/terraform terraform
 export PNPM_HOME="/home/adit/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
