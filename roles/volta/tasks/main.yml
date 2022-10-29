@@ -1,0 +1,3 @@
+- name: Install Volta
+  ansible.builtin.command:
+    cmd: "curl https://get.volta.sh | bash"
