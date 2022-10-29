@@ -188,6 +188,9 @@ local config = {
                         ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
                         -- quick save
                         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+                        -- Hop mapping
+                        ["<leader>H"] = { "<cmd>nohl<cr>", desc = "Clear Highlight" },
+                        ["<leader>h"] = { "<cmd>HopWord<cr>", desc = "Hop" },
                 },
                 t = {
                         -- setting a mapping to false will disable it
@@ -201,6 +204,12 @@ local config = {
                         { "pearofducks/ansible-vim" },
                         { "chr4/nginx.vim" },
                         { "rebelot/kanagawa.nvim" },
+                        { 'phaazon/hop.nvim',
+                                branch = 'v2', -- optional but strongly recommended
+                                config = function()
+                                        -- you can configure Hop the way you like here; see :h hop-config
+                                        require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+                                end }
                         -- {
                         --         "Pocco81/auto-save.nvim",
                         --         config = function()
