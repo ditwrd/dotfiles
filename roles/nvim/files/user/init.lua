@@ -26,7 +26,7 @@ local config = {
         },
 
         -- Set colorscheme to use
-        colorscheme = "nightfly",
+        colorscheme = "kanagawa",
 
         -- Add highlight groups in any theme
         highlights = {
@@ -200,14 +200,14 @@ local config = {
                 init = {
                         { "pearofducks/ansible-vim" },
                         { "chr4/nginx.vim" },
-                        { "bluz71/vim-nightfly-guicolors" },
-                        {
-                                "Pocco81/auto-save.nvim",
-                                config = function()
-                                        require("auto-save").setup {
-                                        }
-                                end,
-                        }
+                        { "rebelot/kanagawa.nvim" },
+                        -- {
+                        --         "Pocco81/auto-save.nvim",
+                        --         config = function()
+                        --                 require("auto-save").setup {
+                        --                 }
+                        --         end,
+                        -- }
                         -- You can disable default plugins as follows:
                         -- ["goolord/alpha-nvim"] = { disable = true },
 
