@@ -1,4 +1,4 @@
---              AstroNvim Configuration Table
+--              AstroNvim Configuration jable
 -- All configuration changes should go inside of the table below
 
 -- You can think of a Lua "table" as a dictionary like data structure the
@@ -211,12 +211,13 @@ local config = {
                 init = {
                         { "pearofducks/ansible-vim" },
                         { "chr4/nginx.vim" },
+                        { "bluz71/vim-nightfly-guicolors" },
                         { "rebelot/kanagawa.nvim" },
                         { 'phaazon/hop.nvim',
                                 branch = 'v2', -- optional but strongly recommended
                                 config = function()
                                         -- you can configure Hop the way you like here; see :h hop-config
-                                        require 'hop'.setup { keys = 'crumwersdfjkluio' }
+                                        require 'hop'.setup { keys = 'wersdfuiojklcmvn' }
                                 end }
                         -- {
                         --         "Pocco81/auto-save.nvim",

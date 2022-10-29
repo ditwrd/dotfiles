@@ -13,6 +13,9 @@
     - role: volta
       tags:
         - volta
+    - role: rust
+      tags:
+        - rust
     - {
         role: diodonfrost.p10k,
         p10k_prompt_style: "rainbow",
