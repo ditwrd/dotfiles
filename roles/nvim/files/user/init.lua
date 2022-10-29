@@ -19,7 +19,7 @@ local config = {
                 auto_reload = false, -- automatically reload and sync packer after a successful update
                 auto_quit = false, -- automatically quit the current session after a successful update
                 -- remotes = { -- easily add new remotes to track
-                --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
+                ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
                 --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
                 --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
                 -- },
@@ -186,15 +186,24 @@ local config = {
                         ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
                         ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
                         ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
-                        -- quick save
-                        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
                         -- Hop mapping
                         ["<leader>j"] = { "<cmd>HopWord<cr>", desc = "Hop" },
+
+                        -- Tab Shift Tab
+                        ["<S-tab>"] = { "<<" },
                 },
+                v = {
+
+                        ["<S-tab>"] = { "<<" },
+                },
+
                 t = {
                         -- setting a mapping to false will disable it
                         -- ["<esc>"] = false,
                 },
+                i = {
+                        ["<S-tab>"] = { "<C-d>" }
+                }
         },
 
         -- Configure plugins
