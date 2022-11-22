@@ -54,6 +54,7 @@ local config = {
                         autopairs_enabled = true, -- enable autopairs at start
                         diagnostics_enabled = true, -- enable diagnostics at start
                         status_diagnostics_enabled = true, -- enable diagnostics in statusline
+                        mkdp_theme = 'light'
                 },
         },
         -- If you need more control, you can use the function()...end notation
@@ -191,10 +192,17 @@ local config = {
 
                         -- Tab Shift Tab
                         ["<S-tab>"] = { "<<" },
+
+                        -- Neogen
+                        ["<leader>d"] = { "<cmd>Neogen<cr>", desc = "Create Docstring" }
                 },
                 v = {
 
                         ["<S-tab>"] = { "<<" },
+                        ["<leader>ss"] = { '<cmd>lua require("silicon").visualise_api({})<cr>',
+                                desc = "Snap blocked code" },
+                        ["<leader>sa"] = { '<cmd>lua require("silicon").visualise_api({show_buf=true})<cr>',
+                                desc = "Snap blocked code and buffer" },
                 },
 
                 t = {
@@ -218,7 +226,30 @@ local config = {
                                 config = function()
                                         -- you can configure Hop the way you like here; see :h hop-config
                                         require 'hop'.setup { keys = 'wersdfuiojklcmvn' }
-                                end }
+                                end },
+                        {
+                                "narutoxy/silicon.lua",
+                                requires = { "nvim-lua/plenary.nvim" },
+                                config = function()
+                                        require('silicon').setup({})
+                                end
+                        },
+                        {
+                                "danymat/neogen",
+                                config = function()
+                                        require('neogen').setup {}
+                                end
+                        },
+                        {
+                                "iamcco/markdown-preview.nvim",
+                                run = function()
+                                        vim.fn["mkdp#util#install"]()
+                                end,
+
+                        },
+                        {
+                                "ixru/nvim-markdown"
+                        }
                         -- {
                         --         "Pocco81/auto-save.nvim",
                         --         config = function()

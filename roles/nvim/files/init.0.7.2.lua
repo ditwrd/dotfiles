@@ -307,6 +307,7 @@ local config = {
 			pattern = "plugins.lua",
 			command = "source <afile> | PackerSync",
 		})
+		vim.g.mkdp_theme = 1
 
 		-- Set up custom filetypes
 		-- vim.filetype.add {
