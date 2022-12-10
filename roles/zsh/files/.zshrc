@@ -3,14 +3,14 @@ zmodload zsh/zprof
 
 # BEGIN P10K INSTANT PROMPT ANSIBLE MANAGED BLOCK
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 # END P10K INSTANT PROMPT ANSIBLE MANAGED BLOCK
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # If you come from bash you might have to change your $PATH.
@@ -113,7 +113,7 @@ alias cl="clear"
 alias tm="tmux"
 alias tma="tmux attach -t"
 alias st="speedtest"
-alias coa="conda activate"
+alias cda="conda activate"
 alias lg="lazygit"
 alias x="exit"
 
@@ -135,6 +135,10 @@ export PATH="/usr/local/bin/flutter/bin:$PATH"
 export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
 export CONDA_AUTO_ACTIVATE_BASE=false
 
+# Auto gitlab ssh-add
+eval `ssh-agent -s` &>/dev/null
+ssh-add ~/.ssh/id_ed25519_gitlab &>/dev/null
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/adit/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -154,7 +158,7 @@ unset __conda_setup
 RUNNING=`ps aux | grep dockerd | grep -v grep`
 
 
-# Start Docker on WSL 
+# Start Docker on WSL
 if service docker status 2>&1 | grep -q "is not running"; then
     wsl.exe -d "${WSL_DISTRO_NAME}" -u root -e /usr/sbin/service docker start >/dev/null 2>&1
 fi
