@@ -310,15 +310,6 @@ local config = {
 		["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
 			ensure_installed = { "prettier", "hadolint", "black", "shellcheck" },
 		},
-		["neo-tree"] = {
-			filesystem = {
-				window = {
-					mappings = {
-						["T"] = "toggle_hidden",
-					},
-				},
-			},
-		},
 	},
 
 	-- LuaSnip Options
