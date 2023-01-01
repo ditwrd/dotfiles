@@ -92,7 +92,6 @@ plugins=(zsh-autoswitch-conda zshfl auto-color-ls z zsh-autosuggestions fzf)
 source $ZSH/oh-my-zsh.sh
 source $(dirname $(gem which colorls))/tab_complete.sh
 
-
 # User configuration
 
 
@@ -123,6 +122,8 @@ alias pnx="pnpm nx"
 alias dacli='docker run --rm -it -v $(pwd):/ansible --workdir=/ansible willhallonline/ansible:latest /bin/sh'
 alias dacmd='docker run --rm -it -v $(pwd):/ansible --workdir=/ansible willhallonline/ansible:latest '
 
+alias awsd="source _awsd"
+alias tf='terraform'
 
 
 # Custom export
@@ -176,3 +177,7 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+[[ -s "/home/adit/.gvm/scripts/gvm" ]] && source "/home/adit/.gvm/scripts/gvm"
+fpath=(~/.zsh.d/ $fpath)
+

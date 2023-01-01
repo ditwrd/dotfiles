@@ -39,6 +39,7 @@
     dest: "{{ dotfiles_user_home }}/.oh-my-zsh/custom/plugins"
     state: link
   when: not oh_my_zsh_stat.stat.exists
+  # loop: "{{ lookup('fileglob',dotfiles_home/roles/zsh/files/plugins/*,)}}"
 
 - name: Check for .zshrc
   stat: path="{{dotfiles_user_home}}/.zshrc"
