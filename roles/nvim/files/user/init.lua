@@ -129,6 +129,7 @@ local config = {
 						format_on_save = true, -- enable or disable auto formatting on save
 						disabled = { -- disable formatting capabilities for the listed clients
 								-- "sumneko_lua",
+								"pylsp",
 						},
 						-- filter = function(client) -- fully override the default formatting function
 						--   return true
@@ -160,6 +161,8 @@ local config = {
 														["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
 														["https://raw.githubusercontent.com/ansible/schemas/main/f/ansible.json"] = "**/roles/**/tasks/**.{yml,yaml}",
 														["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "**/docker-compose.{yml,yaml}.**",
+														["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "**/deploy/{pipeline,pipelines}/**/**.{yml,yaml}",
+														["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = ".gitlab-ci.{yaml,yml}",
 												},
 										},
 								},
@@ -300,7 +303,7 @@ local config = {
 				},
 				-- use mason-lspconfig to configure LSP installations
 				["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
-						ensure_installed = { "terraformls", "tflint", "tsserver", "ansiblels", "dockerls" },
+						ensure_installed = { "terraformls", "tflint", "tsserver", "dockerls" },
 				},
 				-- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
 				["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
