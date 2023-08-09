@@ -11,18 +11,9 @@ if ! [ -x "$(command -v conda)" ]; then
 	bash scripts/miniconda-setup.sh
 fi
 
-if [ $tags = "p10k" ] || [ $tags = "all" ]; then
-	ansible-galaxy install diodonfrost.p10k
-fi
-
-if [ $tags = "docker" ] || [ $tags = "all" ]; then
-	ansible-galaxy install geerlingguy.docker
-fi
-
-if [ $tags = "aws" ] || [ $tags = "all" ]; then
-	ansible-galaxy install christiangda.awscli
-fi
-
+ansible-galaxy install diodonfrost.p10k
+ansible-galaxy install geerlingguy.docker
+ansible-galaxy install christiangda.awscli
 ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/dotfiles.yml --ask-become-pass --tags $tags
 
 if [ $tags = "nvim" ] || [ $tags = "all" ]; then
