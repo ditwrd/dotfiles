@@ -99,6 +99,7 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 alias vz="nvim ~/.zshrc"
 alias voz="nvim ~/.oh-my-zsh"
 alias vd="nvim ~/dotfiles"
+alias vc="nvim ~/.ssh/config"
 alias v="nvim"
 
 alias lsc='colorls -lA --sd'
@@ -114,6 +115,7 @@ alias tma="tmux attach -t"
 alias st="speedtest"
 alias cda="conda activate"
 alias lg="lazygit"
+alias ld="lazydocker"
 alias x="exit"
 
 alias dsp="docker system prune"
@@ -134,7 +136,12 @@ export PATH=$HOME/.gem:$PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/bin/flutter/bin:$PATH"
 export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
+export PATH="$PATH:/home/adit/cloud-sql-proxy"
+export PATH="$PATH:/usr/local/texlive/2023/bin/x86_64-linux"
+export PATH="$PATH:/mnt/c/Users/adity/Downloads/SumatraPDF.exe"
 export CONDA_AUTO_ACTIVATE_BASE=false
+export FLYCTL_INSTALL="/home/adit/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 # Auto gitlab ssh-add
 eval `ssh-agent -s` &>/dev/null
@@ -180,4 +187,3 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 [[ -s "/home/adit/.gvm/scripts/gvm" ]] && source "/home/adit/.gvm/scripts/gvm"
 fpath=(~/.zsh.d/ $fpath)
-
