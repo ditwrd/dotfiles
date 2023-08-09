@@ -11,11 +11,6 @@ if ! [ -x "$(command -v conda)" ]; then
 	bash scripts/miniconda-setup.sh
 fi
 
-if ! [ -x "$(command -v ansible)" ]; then
-	conda install -c conda-forge ansible
-	conda install -c conda-forge ansible-lint
-fi
-
 if [ $tags = "p10k" ] || [ $tags = "all" ]; then
 	ansible-galaxy install diodonfrost.p10k
 fi
